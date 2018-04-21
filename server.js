@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("at-the-gate/build"));
+    app.use(express.static("build"));
 }
 
 // Use body-parser for handling form submissions
@@ -20,7 +20,7 @@ app.use(bodyParser.json());
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "at-the-gate/build", "index.html"));
+    res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 // // Our scraping tools
