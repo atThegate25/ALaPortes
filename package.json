@@ -5,12 +5,12 @@
     "main": "server.js",
     "scripts": {
         "server": "nodemon server.js",
-        "client": "cd client && yarn start",
-        "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"yarn client\"",
-        "build": "cd client && yarn build",
+        "client": "cd app && yarn start",
+        "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"yarn app\"",
+        "build": "cd app && yarn build",
         "deploy": "yarn build && git add . && git commit -m \"Building for production\" && git push heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+        "production": "concurrently --kill-others-on-fail \"yarn server\" \"yarn app\""
     },
     "repository": {
         "type": "git",
