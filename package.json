@@ -6,11 +6,12 @@
     "scripts": {
         "server": "nodemon server.js",
         "client": "cd app && yarn start",
-        "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"npm run client\"",
+        "start": "node server.js",
         "build": "cd app && yarn build",
         "deploy": "yarn build && git add -A && git commit -am \"Building for production\" && git push heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
-        "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+        "production": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+        "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
     },
     "repository": {
         "type": "git",
@@ -34,5 +35,8 @@
         "mongoose-unique-validator": "^2.0.0",
         "morgan": "^1.9.0",
         "path": "^0.12.7"
+    },
+    "engines": {
+        "node": "8.11.1"
     }
 }

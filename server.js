@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build"));
+    app.use(express.static("client/public"));
 }
 
 // Use body-parser for handling form submissions
@@ -20,12 +20,12 @@ app.use(bodyParser.json());
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "client/index.html"));
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 // // Our scraping tools
 // // Axios is a promised-based http library, similar to jQuery's Ajax method
-// // It works on the client and on the server
+// // It works on the app and on the server
 const axios = require("axios");
 const cheerio = require("cheerio");
 
