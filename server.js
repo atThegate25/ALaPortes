@@ -1,6 +1,8 @@
+// import { dirname } from "path";
+
 const express = require("express");
 const path = require("path");
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const app = express();
 const routes = require("./routes")
 const Router = express.Router()
@@ -10,7 +12,7 @@ const mongoose = require("mongoose");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-    app.use(express.static("client/build/"));
+    app.use(express.static("client/build"));
 }
 
 // Use body-parser for handling form submissions

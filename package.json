@@ -5,9 +5,9 @@
     "main": "server.js",
     "scripts": {
         "server": "nodemon server.js",
-        "client": "cd app && yarn start",
-        "start": "node server.js",
-        "build": "cd app && yarn build",
+        "client": "cd client && yarn start",
+        "start": "./node_modules/.bin/concurrently \"./node_modules/.bin/nodemon\" \"yarn client\"",
+        "build": "cd client && yarn build",
         "deploy": "yarn build && git add -A && git commit -am \"Building for production\" && git push heroku master",
         "test": "echo \"Error: no test specified\" && exit 1",
         "production": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
