@@ -11,7 +11,7 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 
 // Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === "dev") {
+if (process.env.NODE_ENV === "production") {
     app.use(express.static(__dirname, "client/build"));
 }
 
