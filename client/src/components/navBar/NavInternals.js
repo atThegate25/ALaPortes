@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 export default class NavInternals extends Component {
+
     render() {
         return (
             <div>
